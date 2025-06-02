@@ -90,9 +90,13 @@ void executeCmd(std::vector<std::string> args)
 
     std::string command = args[0];
     std::string arguments;
-    for (size_t i = 1; i < args.size(); ++i)
+    for (size_t i = 1; i < args.size() - 1; ++i)
     {
         arguments += args[i] + " ";
+    }
+
+    if (args.back() != "&"){
+        arguments += args.back();
     }
 
     STARTUPINFO si = {sizeof(STARTUPINFO)};
